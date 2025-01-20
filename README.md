@@ -1,51 +1,37 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><strong> API - Task Management (Laravel 10)</strong></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-</p>
 
-## About Laravel
+### REQUISITOS
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [PHP](https://www.php.net/) (recomendado: versión 8.2 o superior)
+- [Composer](https://getcomposer.org/) (para la gestión de dependencias)
+- [Node.js](https://nodejs.org/) (para la gestión de dependencias de frontend si es necesario)
+- [Xampp](https://www.apachefriends.org/es/index.html) (opcional: versión 8.2.x o superior, para la administración de los datos (si se usa MySQL) y también te brinda la instalación de la última versión de PHP para Laravel 10)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### PASOS PARA LA INSTALACIÓN Y EJECUCIÓN DEL PROYECTO
 
-## Learning Laravel
+1.- Clonar el repositorio que es público: https://github.com/MarioPacherrez/Task-Management.git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2.- Instalar dependencias, para ello ejecutar los comandos: npm install y composer install.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3.- Configurar el archivo .env, copia el archivo .env.example y renómbralo a .env
+Luego, abre el archivo .env y configura los parámetros de la base de datos según tu entorno. Asegúrate de tener configurado el DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME y DB_PASSWORD correctamente.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4.- Generar la clave de la aplicación, Laravel necesita una clave única para la aplicación. Genera esta clave ejecutando: php artisan key:generate
 
-## Laravel Sponsors
+5.- Ejecutar las migraciones con el siguiente comando: php artisan migrate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+6.- Iniciar el servidor de desarrollo con el siguiente comando: php artisan serve
+El servidor se ejecutará en http://127.0.0.1:8000 de forma predeterminada.
 
-### Premium Partners
+7.- Como en este caso el proyecto tiene pruebas configuradas puedes ejecutar las pruebas con PHPUnit para verificar que todo funcione correctamente con el siguiente comando: php artisan test
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+8.- API Endpoints, el proyecto tiene las rutas API para el uso y ejecución de las funcionalidades en al archivo routes/api.php, para ello necesitas registrarte ya que se generará un token con el cual puedes hacer uso de las otras API para lo correspondiente al uso de las funcionalidades para Task.
 
-## Contributing
+9.- Para probar la autenticación y visualizar las tareas:
+- Realiza una solicitud POST a /api/login con las credenciales del usuario ya registrado.
+- Usa el token de autenticación para hacer solicitudes autenticadas a otros endpoints, como /api/tasks.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+10.- Nota: para este proyecto se hizo uso del Xampp en la versión xampp-windows-x64-8.2.12-0-VS16-installer ya que instalaba el servidor de BD y la versión de PHP necesaria para Laravel 10 que luego se iniciaban estos servicios junto con el proyecto ya levantado.
