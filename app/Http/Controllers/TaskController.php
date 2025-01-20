@@ -20,7 +20,8 @@ class TaskController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
+            'status' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -31,6 +32,7 @@ class TaskController extends Controller
         $task = Task::create([
             'title' => $request->title,
             'description' => $request->description,
+            'status' => 'pending',
             'user_id' => $user->id,
         ]);
 
